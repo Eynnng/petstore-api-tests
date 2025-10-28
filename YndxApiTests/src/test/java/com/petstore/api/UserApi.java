@@ -1,5 +1,6 @@
 package com.petstore.api;
 
+import com.petstore.model.User;
 import com.petstore.utils.Config;
 import io.restassured.response.Response;
 
@@ -7,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class UserApi {
 
-    public Response createUser(Object user) {
+    public Response createUser(User user) {
         return given(Config.getRequestSpecification())
                 .body(user)
                 .when()
@@ -28,7 +29,7 @@ public class UserApi {
                 .response();
     }
 
-    public Response updateUser(String username, Object user) {
+    public Response updateUser(String username, User user) {
         return given(Config.getRequestSpecification())
                 .body(user)
                 .when()
